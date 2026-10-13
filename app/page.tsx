@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import BusinessModelCanvas from './components/business-model-canvas';
+import ValueChain from './components/value-chain';
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -18,6 +20,9 @@ export default function Home() {
         <div className="flex items-center gap-4">
           <button 
             onClick={() => setSidebarOpen(!sidebarOpen)}
+            aria-label={sidebarOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+            aria-expanded={sidebarOpen}
+            aria-controls="blog-sidebar"
             className="text-slate-500 hover:text-slate-700 focus:outline-none w-10 h-10 flex items-center justify-center lg:hidden transition-colors rounded-md hover:bg-slate-100"
           >
             <i className="fas fa-bars text-xl"></i>
@@ -49,7 +54,7 @@ export default function Home() {
       )}
 
       {/* Sidebar */}
-      <aside className={`bg-white w-72 h-full pt-16 border-r border-slate-200 flex flex-col fixed lg:relative z-20 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-lg lg:shadow-none`}>
+      <aside id="blog-sidebar" className={`bg-white w-72 shrink-0 h-full pt-16 border-r border-slate-200 flex flex-col fixed lg:relative z-20 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-lg lg:shadow-none`}>
         <div className="p-6 border-b border-slate-100">
           <h2 className="font-bold text-xl text-slate-900 mb-1">CMMI & DMM</h2>
           <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Proyecto Académico</p>
@@ -113,11 +118,37 @@ export default function Home() {
               <li className="py-1.5 pl-4 text-sm text-slate-600 hover:text-corporate-accent cursor-pointer transition-colors rounded-r-md hover:bg-slate-50">Beneficios</li>
             </ul>
           </div>
+
+          <div className="px-4 mt-3">
+            <a
+              href="#modelo-de-negocio"
+              onClick={() => setSidebarOpen(false)}
+              className="flex min-h-11 items-center gap-3 rounded-lg px-4 py-3 text-sm font-semibold text-slate-600 transition-colors hover:bg-corporate-light hover:text-corporate-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-corporate-accent"
+            >
+              <svg className="h-5 w-5 shrink-0 text-corporate-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="16" rx="2" />
+                <path d="M3 15h18M9 4v11M15 4v11M9 9h6M12 15v5" />
+              </svg>
+              Modelo de Negocio Canvas
+            </a>
+            <a
+              href="#cadena-de-valor"
+              onClick={() => setSidebarOpen(false)}
+              className="mt-1 flex min-h-11 items-center gap-3 rounded-lg px-4 py-3 text-sm font-semibold text-slate-600 transition-colors hover:bg-corporate-light hover:text-corporate-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-corporate-accent"
+            >
+              <svg className="h-5 w-5 shrink-0 text-corporate-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="6" height="6" rx="1" />
+                <rect x="15" y="15" width="6" height="6" rx="1" />
+                <path d="M9 6h8a1 1 0 0 1 1 1v8M3 15h6v6H3zM6 9v6M9 18h6" />
+              </svg>
+              Cadena de Valor
+            </a>
+          </div>
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 h-full pt-16 overflow-y-auto relative p-6 md:p-10 lg:p-14">
+      <main className="flex-1 min-w-0 h-full pt-16 overflow-y-auto relative p-6 md:p-10 lg:p-14">
         <div className="max-w-6xl mx-auto space-y-16">
           
           {/* Hero Section */}
@@ -309,7 +340,7 @@ export default function Home() {
           <div>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
               <div>
-                <h2 className="font-bold text-3xl text-slate-900 tracking-tight">Flujo Actual "AS-IS"</h2>
+                <h2 className="font-bold text-3xl text-slate-900 tracking-tight">Flujo Actual &quot;AS-IS&quot;</h2>
                 <p className="text-slate-500 mt-2 text-lg">Proceso manual y reactivo de matrículas</p>
               </div>
               <div className="bg-orange-50 text-orange-700 border border-orange-200 px-4 py-1.5 rounded-full font-semibold text-sm w-max flex items-center gap-2">
@@ -344,7 +375,7 @@ export default function Home() {
           <div className="pb-12">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
               <div>
-                <h2 className="font-bold text-3xl text-slate-900 tracking-tight">Flujo Propuesto "TO-BE"</h2>
+                <h2 className="font-bold text-3xl text-slate-900 tracking-tight">Flujo Propuesto &quot;TO-BE&quot;</h2>
                 <p className="text-slate-500 mt-2 text-lg">Modelo automatizado de autoservicio</p>
               </div>
               <div className="bg-blue-50 text-blue-700 border border-blue-200 px-4 py-1.5 rounded-full font-semibold text-sm w-max flex items-center gap-2">
@@ -374,6 +405,9 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          <BusinessModelCanvas />
+          <ValueChain />
 
         </div>
       </main>
