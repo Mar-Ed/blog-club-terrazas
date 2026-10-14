@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import BusinessModelCanvas from './components/business-model-canvas';
 import ValueChain from './components/value-chain';
+import Ec2Semana7 from './components/ec2-semana7';
 
 interface LightboxImage {
   src: string;
@@ -338,6 +339,14 @@ export default function Home() {
                 <path d="M9 6h8a1 1 0 0 1 1 1v8M3 15h6v6H3zM6 9v6M9 18h6" />
               </svg>
               Cadena de Valor
+            </a>
+            <a
+              href="#ec2-semana7"
+              onClick={() => setSidebarOpen(false)}
+              className="mt-1 flex min-h-11 items-center gap-3 rounded-lg px-4 py-3 text-sm font-semibold text-slate-600 transition-colors hover:bg-corporate-light hover:text-corporate-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-corporate-accent"
+            >
+              <i className="fas fa-chart-bar w-5 text-center text-corporate-accent"></i>
+              EC2 · Semana 7
             </a>
           </div>
         </div>
@@ -1439,6 +1448,7 @@ export default function Home() {
 
           <BusinessModelCanvas />
           <ValueChain />
+          <Ec2Semana7 />
 
         </div>
       </main>
