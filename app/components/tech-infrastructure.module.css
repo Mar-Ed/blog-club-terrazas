@@ -1,0 +1,720 @@
+.section {
+  min-width: 0;
+  padding-bottom: 3rem;
+  scroll-margin-top: 2rem;
+  container-type: inline-size;
+}
+
+.board {
+  --ti-navy: #0c315e;
+  --ti-navy-dark: #072244;
+  --ti-blue: #1668a8;
+  --ti-teal: #159592;
+  --ti-sky: #e7f3fb;
+  --ti-card-bg: #f9fcff;
+  --ti-border: #c5dff0;
+  --ti-text: #162938;
+  --ti-muted: #42586b;
+  --ti-green: #1ea664;
+  --ti-amber-bg: #fce1c4;
+  --ti-amber-icon: #e86c1f;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1.5px solid #bfd8ea;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #eef6fb 0%, #f7fbfe 55%, #eaf4fb 100%);
+  color: var(--ti-text);
+  box-shadow: 0 12px 32px -12px rgba(12, 49, 94, 0.14);
+}
+
+/* Top Banner */
+.banner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 32px;
+  background: linear-gradient(100deg, #082347 0%, #0d376b 58%, #145391 100%);
+  color: #fff;
+  border-bottom: 3px solid #1b76b8;
+}
+
+.bannerStripes {
+  position: absolute;
+  top: -10%;
+  right: -28px;
+  bottom: -10%;
+  width: 190px;
+  pointer-events: none;
+  transform: skewX(-28deg);
+  display: flex;
+}
+
+.bannerStripes span:nth-child(1) {
+  width: 48px;
+  background: rgba(114, 200, 240, 0.35);
+}
+.bannerStripes span:nth-child(2) {
+  width: 34px;
+  background: rgba(25, 160, 168, 0.55);
+}
+.bannerStripes span:nth-child(3) {
+  width: 38px;
+  background: #f08a24;
+}
+.bannerStripes span:nth-child(4) {
+  width: 70px;
+  background: #07203f;
+}
+
+.bannerArtwork {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 98px;
+  width: 98px;
+  height: 82px;
+}
+
+.bannerDivider {
+  position: relative;
+  z-index: 1;
+  width: 2.5px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+}
+
+.bannerHeading {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.bannerHeading h3 {
+  margin: 0;
+  font-size: clamp(22px, 3cqi, 34px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.bannerHeading p {
+  margin: 6px 0 0;
+  color: #d7eeff;
+  font-size: clamp(15px, 1.9cqi, 21px);
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Inner body container */
+.body {
+  padding: 22px 24px 20px;
+  display: grid;
+  gap: 20px;
+}
+
+/* Section wrapper with overlapping tab header */
+.panel {
+  position: relative;
+  padding-top: 18px;
+}
+
+.tabHeader {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 12px;
+  margin-bottom: -14px;
+  padding: 6px 20px;
+  border-radius: 10px 16px 10px 4px;
+  background: linear-gradient(90deg, #0b2f5b 0%, #12437c 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(12, 49, 94, 0.18);
+}
+
+.panelCard {
+  position: relative;
+  z-index: 1;
+  padding: 26px 22px 20px;
+  border: 1.5px solid var(--ti-border);
+  border-radius: 14px;
+  background: var(--ti-card-bg);
+  box-shadow: 0 3px 10px rgba(15, 52, 96, 0.05);
+}
+
+/* 1. SITUACION ACTUAL (AS-IS) */
+.asisGrid {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1.25fr) minmax(240px, 0.95fr);
+  align-items: center;
+  gap: 22px;
+}
+
+.asisIllustration {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.bulletList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.bulletList li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.38;
+  color: var(--ti-text);
+}
+
+.bulletList li::before {
+  content: '';
+  position: absolute;
+  top: 0.42em;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ti-green);
+}
+
+.warningBox {
+  padding: 18px 18px 16px;
+  border: 1.5px solid #f4c392;
+  border-radius: 14px;
+  background: var(--ti-amber-bg);
+  text-align: center;
+  color: #2a1d15;
+}
+
+.warningIcon {
+  width: 48px;
+  height: 44px;
+  margin: 0 auto 8px;
+  display: block;
+}
+
+.warningBox p {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+/* 2. PRINCIPALES BRECHAS Y RIESGOS */
+.risksGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.riskCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1.5px solid #bdd8ec;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f3f9fd 0%, #e6f2fa 100%);
+  text-align: center;
+}
+
+.riskHeader {
+  padding: 8px 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.riskBlue .riskHeader {
+  background: linear-gradient(90deg, #125896 0%, #1b75bc 100%);
+}
+
+.riskTeal .riskHeader {
+  background: linear-gradient(90deg, #0f8282 0%, #1ba49c 100%);
+}
+
+.riskBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 14px 16px;
+}
+
+.riskIcon {
+  width: 66px;
+  height: 62px;
+}
+
+.riskBody p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.35;
+  color: var(--ti-text);
+}
+
+/* Middle Row: 3. DIAGNOSTICO & 4. INFRAESTRUCTURA PROPUESTA (TO-BE) */
+.middleRow {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.88fr) minmax(0, 1.52fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.middleRow > .panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.middleRow > .panel > .panelCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.diagGrid {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  margin: auto 0;
+}
+
+.diagIllustration {
+  width: 112px;
+  height: 126px;
+}
+
+/* 4. TO-BE Architecture */
+.tobeTopBadgeWrap {
+  text-align: center;
+  margin-top: -6px;
+  margin-bottom: 14px;
+}
+
+.tobeBadge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #eb811b 0%, #f39a2d 100%);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(235, 129, 27, 0.28);
+}
+
+.flowWrap {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  align-items: start;
+}
+
+.flowStep {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.flowStep:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 22px;
+  right: -10px;
+  color: #164e87;
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.flowIcon {
+  width: 66px;
+  height: 54px;
+  margin-bottom: 6px;
+}
+
+.flowLabel {
+  width: 100%;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 6px;
+  border-radius: 7px;
+  background: #0d3562;
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.gatewayConnector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.gatewayArrows {
+  color: #164e87;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.gatewayBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border: 1.5px dashed #5fa4d6;
+  border-radius: 8px;
+  background: #edf6fc;
+  color: #0e355e;
+  font-size: 10.5px;
+  font-weight: 750;
+  line-height: 1.2;
+  text-align: left;
+  width: max-content;
+  max-width: 190px;
+}
+
+.gatewayIcon {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 18px;
+}
+
+.capabilitiesBar {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid #a8dfc2;
+  border-radius: 10px;
+  background: #e3f5ec;
+  color: #113b28;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.capabilitiesIcon {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+}
+
+/* 5. PLAN DE MEJORA */
+.planGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.planCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px 14px 12px;
+  border: 1.5px solid #c3ddef;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #e7f3fc 0%, #dcebfb 100%);
+}
+
+.planCard:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  right: -16px;
+  transform: translateY(-50%);
+  color: #12457a;
+  font-size: 20px;
+  font-weight: 900;
+  z-index: 2;
+}
+
+.planCardTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+.planNumber {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #0c315e;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.planCardTop p {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ti-text);
+}
+
+.planIllustration {
+  width: 82px;
+  height: 60px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Bottom Goal Banner */
+.goalBanner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 16px 28px;
+  border-radius: 14px;
+  background: linear-gradient(95deg, #072346 0%, #0d3566 65%, #11437d 100%);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(8, 35, 70, 0.22);
+}
+
+.trophyIcon {
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
+}
+
+.goalText {
+  margin: 0;
+  font-size: clamp(15px, 1.85cqi, 20px);
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.goalHighlight {
+  color: #f9c846;
+  text-transform: uppercase;
+}
+
+.sourceFooter {
+  margin: 0;
+  padding: 2px 16px 16px;
+  text-align: center;
+  font-size: 12.5px;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--ti-muted);
+}
+
+/* 6. EVIDENCIA FOTOGRÁFICA DE AUDITORÍA TI */
+.evidenceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.evidenceCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1.5px solid #bfd8ea;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.evidenceCard:hover {
+  transform: translateY(-3px);
+  border-color: #1b75bc;
+  box-shadow: 0 10px 24px -8px rgba(12, 49, 94, 0.2);
+}
+
+.evidenceImgWrap {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  background: #0d223a;
+}
+
+.evidenceImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.evidenceCard:hover .evidenceImg {
+  transform: scale(1.04);
+}
+
+.evidenceBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(12, 49, 94, 0.9);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+
+.evidenceZoomPill {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0c315e;
+  font-size: 11px;
+  font-weight: 750;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.evidenceContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px 16px 16px;
+  gap: 10px;
+}
+
+.evidenceTitle {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #0c315e;
+}
+
+.evidenceDesc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.48;
+  color: var(--ti-muted);
+}
+
+.evidenceMeta {
+  padding-top: 10px;
+  border-top: 1px solid #e2eef7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #1668a8;
+}
+
+/* Responsive Container Queries */
+@container (max-width: 920px) {
+  .asisGrid {
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
+  .warningBox {
+    grid-column: 1 / -1;
+  }
+  .risksGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .middleRow {
+    grid-template-columns: 1fr;
+  }
+  .planGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .planCard:nth-child(2)::after {
+    display: none;
+  }
+  .evidenceGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@container (max-width: 640px) {
+  .banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 18px;
+    gap: 12px;
+  }
+  .bannerDivider {
+    display: none;
+  }
+  .body {
+    padding: 16px 14px;
+  }
+  .asisGrid {
+    grid-template-columns: 1fr;
+  }
+  .risksGrid {
+    grid-template-columns: 1fr;
+  }
+  .diagGrid {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .diagIllustration {
+    margin: 0 auto;
+  }
+  .flowWrap {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .flowStep:not(:last-child)::after {
+    content: '↓';
+    top: auto;
+    bottom: -14px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .planGrid {
+    grid-template-columns: 1fr;
+  }
+  .planCard::after {
+    display: none !important;
+  }
+  .goalBanner {
+    flex-direction: column;
+    padding: 18px 16px;
+  }
+}

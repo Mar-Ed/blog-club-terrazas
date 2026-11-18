@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import BusinessModelCanvas from './components/business-model-canvas';
 import ValueChain from './components/value-chain';
+import TechInfrastructureDiagnosis from './components/tech-infrastructure';
 
 interface LightboxImage {
   src: string;
@@ -316,6 +317,18 @@ export default function Home() {
           </div>
 
           <div className="px-4 mt-3">
+            <a
+              href="#infraestructura-tecnologica"
+              onClick={() => setSidebarOpen(false)}
+              className="mb-1 flex min-h-11 items-center gap-3 rounded-lg px-4 py-3 text-sm font-semibold text-slate-600 transition-colors hover:bg-corporate-light hover:text-corporate-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-corporate-accent"
+            >
+              <svg className="h-5 w-5 shrink-0 text-corporate-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="6" rx="1.5" />
+                <rect x="3" y="14" width="18" height="6" rx="1.5" />
+                <path d="M7 7h.01M7 17h.01M11 7h6M11 17h6" />
+              </svg>
+              Infraestructura Tecnológica
+            </a>
             <a
               href="#modelo-de-negocio"
               onClick={() => setSidebarOpen(false)}
@@ -1439,6 +1452,7 @@ export default function Home() {
 
           <BusinessModelCanvas />
           <ValueChain />
+          <TechInfrastructureDiagnosis onSelectImage={setActiveModalImage} />
 
         </div>
       </main>
